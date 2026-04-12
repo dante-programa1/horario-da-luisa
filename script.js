@@ -1,15 +1,15 @@
 const dados = [
   {
-    dia_da_semana: 'segunda-feira',
+    dia_da_semana: 'Segunda-feira',
     primeiraAula: 'Língua Portuguesa',
     segundaAula: 'Língua Portuguesa',
     terceiraAula: 'Matemática',
     quartaAula: 'Geografia',
     quintaAula: 'Geografia',
-    livros: ''
+    livros: 'Geografia'
   },
   {
-    dia_da_semana: 'terça-feira',
+    dia_da_semana: 'Terça-feira',
     primeiraAula: 'Arte',
     segundaAula: 'Arte',
     terceiraAula: 'Ale',
@@ -18,39 +18,48 @@ const dados = [
     livros: ''
   },
   {
-    dia_da_semana: 'quarta-feira',
+    dia_da_semana: 'Quarta-feira',
     primeiraAula: 'Língua Portuguesa',
     segundaAula: 'Ativ. de Pesquisa',
     terceiraAula: 'Matemática',
     quartaAula: 'Ciências',
     quintaAula: 'Ciências',
-    livros: ''
+    livros: 'Ciências'
   },
   {
-    dia_da_semana: 'quinta-feira',
+    dia_da_semana: 'Quinta-feira',
     primeiraAula: 'Língua Portuguesa',
     segundaAula: 'Matemática',
     terceiraAula: 'Matemática',
     quartaAula: 'Ale',
     quintaAula: 'História',
-    livros: ''
+    livros: 'Matemática'
   },
   {
-    dia_da_semana: 'sexta-feira',
+    dia_da_semana: 'Sexta-feira',
     primeiraAula: 'Língua Portuguesa',
     segundaAula: 'Língua Portuguesa',
     terceiraAula: 'Matemática',
     quartaAula: 'História',
     quintaAula: 'História',
+    livros: 'Língua Portuguesa e História'
+  },
+  {
+    dia_da_semana: 'Sábado',
+    primeiraAula: '',
+    segundaAula: '',
+    terceiraAula: '',
+    quartaAula: '',
+    quintaAula: '',
     livros: ''
   },
   {
-    dia_da_semana: 'sábado',
-    primeiraAula: 'Língua Portuguesa',
-    segundaAula: 'Língua Portuguesa',
-    terceiraAula: 'Matemática',
-    quartaAula: 'História',
-    quintaAula: 'História',
+    dia_da_semana: 'Domingo',
+    primeiraAula: '',
+    segundaAula: '',
+    terceiraAula: '',
+    quartaAula: '',
+    quintaAula: '',
     livros: ''
   }
 ]
@@ -61,14 +70,19 @@ let aula3 = document.getElementById('aula3')
 let aula4 = document.getElementById('aula4')
 let aula5 = document.getElementById('aula5')
 let livros = document.getElementById('livros')
+let hoje = document.getElementById('hoje')
+
 const data = new Date()
 const diaDaSemana = data.toLocaleDateString('pt-BR', { weekday: 'long' })
 
-const diaAtual = dados.filter(item => item.dia_da_semana === diaDaSemana)
+const diaAtual = dados.find(
+  item => item.dia_da_semana.toLowerCase() === diaDaSemana.toLowerCase()
+)
 
-aula1.innerHTML = diaAtual[0].primeiraAula
-aula2.innerHTML = diaAtual[0].segundaAula
-aula3.innerHTML = diaAtual[0].terceiraAula
-aula4.innerHTML = diaAtual[0].quartaAula
-aula5.innerHTML = diaAtual[0].quintaAula
-livros.innerHTML = diaAtual[0].livros
+aula1.innerHTML = diaAtual.primeiraAula
+aula2.innerHTML = diaAtual.segundaAula
+aula3.innerHTML = diaAtual.terceiraAula
+aula4.innerHTML = diaAtual.quartaAula
+aula5.innerHTML = diaAtual.quintaAula
+livros.innerHTML = diaAtual.livros
+hoje.innerHTML = diaAtual.dia_da_semana
